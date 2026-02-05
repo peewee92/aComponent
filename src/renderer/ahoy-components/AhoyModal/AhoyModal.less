@@ -1,0 +1,145 @@
+.ahoy-modal {
+  .ant-modal-content {
+    border-radius: 12px;
+    padding: 24px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ant-modal-header,
+  .ant-modal-body,
+  .ant-modal-footer {
+    padding: 0;
+  }
+
+  .ahoy-modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ahoy-modal-header {
+    margin-bottom: 16px;
+  }
+
+  .ahoy-modal-title {
+    color: #1f1f1f;
+    font-family: "Nunito Sans";
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 32px;
+    margin: 0;
+    text-align: center;
+  }
+
+  .ahoy-modal-description {
+    color: rgba(0, 0, 0, 0.88);
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    display: block;
+    margin: 0 0 24px;
+    text-align: center;
+  }
+
+  .ahoy-modal-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .ant-form-item {
+    margin-bottom: 18px !important;
+  }
+
+  .ant-form-item-label > label {
+    color: #000;
+    font-feature-settings: 'liga' off, 'clig' off;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+  }
+
+  .ant-input,
+  .ant-input-affix-wrapper {
+    border-radius: 8px;
+    padding: 10px 14px;
+  }
+
+  .ahoy-modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 16px;
+  }
+
+  .ahoy-modal-btn {
+    border-radius: 12px;
+    height: 40px;
+    font-family: "Nunito Sans";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    border: none;
+    padding: 0 16px;
+  }
+
+  .ahoy-modal-btn--secondary {
+    background: #f4f4f4;
+    color: #000;
+    font-weight: 500;
+
+    &:hover,
+    &:focus {
+      background: #f4f4f4 !important;
+      color: #000 !important;
+    }
+  }
+
+  .ahoy-modal-btn--primary {
+    background: #000;
+    color: #fff;
+
+    &:disabled,
+    &.ant-btn-loading {
+      background: #d5d5d5;
+      color: #888;
+    }
+
+    &:hover,
+    &:focus {
+      background: #000 !important;
+      color: #fff !important;
+    }
+  }
+
+  &.ahoy-modal--warning {
+    .ahoy-modal-btn--primary {
+      background: #fa8c16;
+
+      &:hover,
+      &:focus {
+        background: #fa8c16 !important;
+        color: #fff !important;
+      }
+    }
+  }
+
+  &.ahoy-modal--destructive {
+    .ahoy-modal-btn--primary {
+      background: #ff4d4f;
+
+      &:hover,
+      &:focus {
+        background: #ff4d4f !important;
+        color: #fff !important;
+      }
+    }
+  }
+}
