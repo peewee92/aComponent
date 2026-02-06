@@ -1,5 +1,25 @@
 import React from 'react'
+import { useArgs } from '@storybook/preview-api'
 import AhoyModal from './AhoyModal'
+
+const useClosableArgs = (args) => {
+  const [, updateArgs] = useArgs()
+  const close = () => updateArgs({ open: false })
+  return {
+    ...args,
+    onCancel: close,
+    maskClosable: true,
+    primaryAction: args.primaryAction
+      ? { ...args.primaryAction, onClick: close }
+      : undefined,
+    secondaryAction: args.secondaryAction
+      ? { ...args.secondaryAction, onClick: close }
+      : undefined,
+    actions: args.actions
+      ? args.actions.map((action) => ({ ...action, onClick: close }))
+      : undefined
+  }
+}
 
 const meta = {
   title: 'Ahoy/AhoyModal',
@@ -18,12 +38,19 @@ const meta = {
     subTitle: 'This action cannot be undone.',
     primaryAction: { text: 'Archive', onClick: () => {} },
     secondaryAction: { text: 'Cancel', onClick: () => {} }
+  },
+  argTypes: {
+    open: { control: 'boolean' }
   }
 }
 
 export default meta
 
 export const Default = {
+  render: (args) => {
+    const closableArgs = useClosableArgs(args)
+    return <AhoyModal {...closableArgs} />
+  },
   parameters: {
     docs: {
       description: {
@@ -37,6 +64,7 @@ export const Compact = {
   args: {
     size: 'compact'
   },
+  render: (args) => <AhoyModal {...useClosableArgs(args)} />,
   parameters: {
     docs: {
       description: {
@@ -51,6 +79,7 @@ export const Warning = {
     variant: 'warning',
     primaryAction: { text: 'Proceed', onClick: () => {} }
   },
+  render: (args) => <AhoyModal {...useClosableArgs(args)} />,
   parameters: {
     docs: {
       description: {
@@ -65,6 +94,7 @@ export const Destructive = {
     variant: 'destructive',
     primaryAction: { text: 'Delete permanently', onClick: () => {} }
   },
+  render: (args) => <AhoyModal {...useClosableArgs(args)} />,
   parameters: {
     docs: {
       description: {
@@ -79,6 +109,7 @@ export const LongCopy = {
     title: 'Archive this employee and remove them from all current projects?',
     subTitle: 'This will revoke access, remove scheduling assignments, and notify the team. Long entity names should wrap naturally without breaking layout.'
   },
+  render: (args) => <AhoyModal {...useClosableArgs(args)} />,
   parameters: {
     docs: {
       description: {
@@ -93,6 +124,7 @@ export const LongButtons = {
     primaryAction: { text: 'Delete permanently', onClick: () => {} },
     secondaryAction: { text: 'Keep for now', onClick: () => {} }
   },
+  render: (args) => <AhoyModal {...useClosableArgs(args)} />,
   parameters: {
     docs: {
       description: {
@@ -110,6 +142,7 @@ export const ThreeButtons = {
       { key: 'delete', text: 'Delete', type: 'primary', onClick: () => {}, danger: true }
     ]
   },
+  render: (args) => <AhoyModal {...useClosableArgs(args)} />,
   parameters: {
     docs: {
       description: {
@@ -124,7 +157,7 @@ export const WithCustomBody = {
     subTitle: 'Update settings before continuing.'
   },
   render: (args) => (
-    <AhoyModal {...args}>
+    <AhoyModal {...useClosableArgs(args)}>
       <div style={{ textAlign: 'center' }}>Custom body content goes here.</div>
     </AhoyModal>
   ),
