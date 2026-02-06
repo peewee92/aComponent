@@ -67,7 +67,7 @@
     "test": "vitest",
     "test:watch": "vitest --watch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build --output-dir storybook-static --base-path /aComponent/"
+    "build-storybook": "storybook build --output-dir storybook-static"
   },
   "dependencies": {
     "@ant-design/cssinjs": "^1.24.0",
