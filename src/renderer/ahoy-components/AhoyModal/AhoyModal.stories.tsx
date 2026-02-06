@@ -33,7 +33,7 @@ const meta = {
     }
   },
   args: {
-    open: true,
+    open: false,
     title: 'Archive employee?',
     subTitle: 'This action cannot be undone.',
     primaryAction: { text: 'Archive', onClick: () => {} },
@@ -47,6 +47,9 @@ const meta = {
 export default meta
 
 export const Default = {
+  args: {
+    open: true
+  },
   render: (args) => {
     const closableArgs = useClosableArgs(args)
     return <AhoyModal {...closableArgs} />
@@ -62,6 +65,7 @@ export const Default = {
 
 export const Compact = {
   args: {
+    open: true,
     size: 'compact'
   },
   render: (args) => <AhoyModal {...useClosableArgs(args)} />,
@@ -76,6 +80,7 @@ export const Compact = {
 
 export const Warning = {
   args: {
+    open: true,
     variant: 'warning',
     primaryAction: { text: 'Proceed', onClick: () => {} }
   },
@@ -91,6 +96,7 @@ export const Warning = {
 
 export const Destructive = {
   args: {
+    open: true,
     variant: 'destructive',
     primaryAction: { text: 'Delete permanently', onClick: () => {} }
   },
@@ -106,6 +112,7 @@ export const Destructive = {
 
 export const LongCopy = {
   args: {
+    open: true,
     title: 'Archive this employee and remove them from all current projects?',
     subTitle: 'This will revoke access, remove scheduling assignments, and notify the team. Long entity names should wrap naturally without breaking layout.'
   },
@@ -121,6 +128,7 @@ export const LongCopy = {
 
 export const LongButtons = {
   args: {
+    open: true,
     primaryAction: { text: 'Delete permanently', onClick: () => {} },
     secondaryAction: { text: 'Keep for now', onClick: () => {} }
   },
@@ -136,6 +144,7 @@ export const LongButtons = {
 
 export const ThreeButtons = {
   args: {
+    open: true,
     actions: [
       { key: 'cancel', text: 'Cancel', onClick: () => {} },
       { key: 'archive', text: 'Archive', onClick: () => {} },
@@ -154,6 +163,7 @@ export const ThreeButtons = {
 
 export const WithCustomBody = {
   args: {
+    open: true,
     subTitle: 'Update settings before continuing.'
   },
   render: (args) => (
