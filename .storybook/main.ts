@@ -49,7 +49,7 @@ const config: StorybookConfig = {
       }
     })
     config.output = config.output || {}
-    config.output.publicPath = '/aComponent/'
+    config.output.publicPath = './'
     return config
   }
 }
